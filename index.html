@@ -4,23 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name | Portfolio</title>
-  <meta name="description" content="Personal portfolio website" />
+  <meta name="description" content="Personal portfolio website of Your Name" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#070b14;
-      --bg2:#0b1220;
+      --bg:#060816;
+      --bg2:#0b1024;
       --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
       --line:rgba(255,255,255,.12);
-      --text:#ecf4ff;
-      --muted:#9fb0cc;
+      --text:#eef4ff;
+      --muted:#a4b3d1;
       --accent:#8b5cf6;
       --accent2:#38bdf8;
-      --shadow:0 20px 70px rgba(0,0,0,.35);
+      --accent3:#22c55e;
+      --shadow:0 22px 80px rgba(0,0,0,.38);
       --radius:24px;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
@@ -29,153 +32,291 @@
       background:
         radial-gradient(circle at top left, rgba(139,92,246,.22), transparent 28%),
         radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 26%),
+        radial-gradient(circle at bottom, rgba(34,197,94,.10), transparent 30%),
         linear-gradient(180deg,var(--bg),var(--bg2));
       min-height:100vh;
       overflow-x:hidden;
     }
+
     a{color:inherit;text-decoration:none}
-    .container{width:min(1100px,calc(100% - 32px));margin:0 auto}
+    .container{width:min(1120px,calc(100% - 32px));margin:0 auto}
+
     .nav{
-      position:sticky;top:0;z-index:20;
+      position:sticky;top:0;z-index:30;
       backdrop-filter:blur(18px);
-      background:rgba(7,11,20,.6);
+      background:rgba(6,8,22,.62);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav-inner{
       display:flex;justify-content:space-between;align-items:center;
       padding:18px 0;gap:16px;flex-wrap:wrap;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:800;letter-spacing:-.03em;
+    }
     .brand-mark{
-      width:40px;height:40px;border-radius:14px;display:grid;place-items:center;
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       box-shadow:0 12px 30px rgba(139,92,246,.28);
       color:white;font-weight:800;
     }
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+    .nav-links{
+      display:flex;gap:18px;flex-wrap:wrap;
+      color:var(--muted);font-size:.95rem;
+    }
     .nav-links a:hover{color:white}
+
     .hero{padding:84px 0 50px}
-    .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:24px;align-items:center}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.35fr .9fr;
+      gap:24px;
+      align-items:center;
+    }
+
     .eyebrow{
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 14px;border-radius:999px;
-      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
-      color:var(--muted);margin-bottom:20px;font-size:.92rem
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:.92rem;
     }
-    .dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 16px rgba(34,197,94,.55)}
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,#22c55e,#86efac);
+      box-shadow:0 0 16px rgba(34,197,94,.55);
+    }
+
     h1{
-      font-size:clamp(3rem,8vw,5.7rem);
-      line-height:.95;letter-spacing:-.06em;max-width:10ch;margin-bottom:18px
+      font-size:clamp(3rem,8vw,5.8rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      max-width:10ch;
+      margin-bottom:18px;
     }
-    .gradient{
-      background:linear-gradient(135deg,#fff 0%,#c4d6ff 35%,#7dd3fc 70%,#34d399 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent
+    .gradient-text{
+      background:linear-gradient(135deg,#ffffff 0%,#c4d6ff 35%,#7dd3fc 70%,#34d399 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
+
     .hero p{
-      max-width:640px;color:var(--muted);line-height:1.85;font-size:1.05rem;margin-bottom:26px
+      max-width:650px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.85;
+      margin-bottom:26px;
     }
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:22px;
+    }
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       padding:14px 20px;border-radius:16px;font-weight:600;
-      border:1px solid transparent;transition:.2s ease
+      border:1px solid transparent;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .btn:hover{transform:translateY(-2px)}
-    .primary{
+    .btn-primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:white;box-shadow:0 16px 34px rgba(56,189,248,.16)
+      color:white;
+      box-shadow:0 16px 34px rgba(56,189,248,.16);
     }
-    .secondary{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+    .btn-secondary{
+      background:rgba(255,255,255,.05);
+      border-color:rgba(255,255,255,.12);
+      color:var(--text);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:10px;
+    }
+    .stat{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .stat h3{font-size:1.3rem;margin-bottom:6px}
+    .stat p{color:var(--muted);font-size:.92rem;line-height:1.5}
+
     .hero-card{
-      min-height:430px;padding:24px;border-radius:28px;
+      min-height:430px;
+      padding:24px;
+      border-radius:28px;
       background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);position:relative;overflow:hidden
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
     .hero-card::before{
-      content:"";position:absolute;inset:-60px;
+      content:"";
+      position:absolute;inset:-60px;
       background:
         radial-gradient(circle at top, rgba(139,92,246,.22), transparent 35%),
         radial-gradient(circle at bottom right, rgba(56,189,248,.20), transparent 30%);
-      pointer-events:none
+      pointer-events:none;
     }
-    .profile{position:relative;z-index:1;display:flex;flex-direction:column;gap:18px;height:100%}
+    .profile{
+      position:relative;z-index:1;
+      display:flex;flex-direction:column;gap:18px;height:100%;
+    }
     .avatar{
-      width:92px;height:92px;border-radius:28px;display:grid;place-items:center;
+      width:92px;height:92px;border-radius:28px;
+      display:grid;place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 18px 40px rgba(139,92,246,.24);font-size:2rem;font-weight:800
+      box-shadow:0 18px 40px rgba(139,92,246,.24);
+      font-size:2rem;font-weight:800;
     }
     .profile h2{font-size:1.8rem;margin-bottom:4px}
     .role{color:var(--muted);margin-bottom:10px}
-    .mini-list{display:grid;gap:12px;margin-top:auto}
-    .mini-item{
-      padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);color:var(--muted)
+    .mini-list{
+      display:grid;gap:12px;margin-top:auto;
     }
+    .mini-item{
+      padding:14px 16px;border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+    }
+
     section{padding:26px 0 0}
     .section-card{
-      margin-top:26px;padding:28px;border-radius:var(--radius);
-      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
-      box-shadow:var(--shadow);backdrop-filter:blur(14px)
+      margin-top:26px;
+      padding:28px;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
     }
-    .section-title{font-size:1.8rem;margin-bottom:10px;letter-spacing:-.04em}
-    .section-subtitle{color:var(--muted);line-height:1.8;max-width:760px;margin-bottom:24px}
-    .about-grid,.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    .about-text p{color:var(--muted);line-height:1.9;margin-bottom:16px}
+    .section-title{
+      font-size:1.8rem;
+      margin-bottom:10px;
+      letter-spacing:-.04em;
+    }
+    .section-subtitle{
+      color:var(--muted);
+      line-height:1.8;
+      max-width:760px;
+      margin-bottom:24px;
+    }
+
+    .about-grid,.contact-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    .about-text p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:16px;
+    }
     .info-box{
-      padding:22px;border-radius:22px;
+      padding:22px;
+      border-radius:22px;
       background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(56,189,248,.10));
-      border:1px solid rgba(255,255,255,.10)
+      border:1px solid rgba(255,255,255,.10);
     }
     .info-box p{color:var(--muted);line-height:1.8}
-    .grid-3,.skill-grid,.contact-links,.timeline,.project-grid{display:grid;gap:14px}
+
+    .skill-grid,.project-grid,.timeline,.contact-links{display:grid;gap:14px}
     .skill-grid{grid-template-columns:repeat(4,1fr)}
     .skill{
       padding:14px 16px;border-radius:16px;text-align:center;
-      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
-      font-weight:500
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      font-weight:500;
     }
+
     .project-grid{grid-template-columns:repeat(3,1fr)}
     .project{
-      padding:22px;border-radius:22px;min-height:250px;
+      padding:22px;
+      border-radius:22px;
+      min-height:250px;
       background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);transition:.25s ease
+      border:1px solid rgba(255,255,255,.10);
+      transition:transform .25s ease, border-color .25s ease;
     }
-    .project:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
+    .project:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,255,255,.22);
+    }
     .badge{
-      display:inline-flex;padding:8px 12px;border-radius:999px;
-      background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.2);
-      color:#e6ddff;font-size:.82rem;margin-bottom:14px
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(139,92,246,.16);
+      color:#e6ddff;
+      border:1px solid rgba(139,92,246,.2);
+      font-size:.82rem;
+      margin-bottom:14px;
     }
     .project h3{font-size:1.3rem;margin-bottom:10px}
     .project p{color:var(--muted);line-height:1.8;margin-bottom:16px}
     .tags{display:flex;flex-wrap:wrap;gap:8px}
     .tag{
-      padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.84rem
+      padding:8px 10px;border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:.84rem;
     }
+
     .timeline-item{
-      padding:18px;border-radius:18px;background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08)
+      padding:18px;border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
     }
     .timeline-item h3{margin-bottom:6px;font-size:1.05rem}
     .timeline-item p{color:var(--muted);line-height:1.8}
+
     .contact-link{
       display:flex;justify-content:space-between;align-items:center;
-      padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08)
+      padding:16px 18px;border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
     }
     .contact-link span{color:var(--muted);font-size:.95rem}
+
     .form{
-      display:grid;gap:12px;margin-top:18px
+      display:grid;gap:12px;margin-top:18px;
     }
     .form input,.form textarea{
-      width:100%;padding:14px 16px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);
-      color:white;font:inherit;outline:none
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:white;
+      font:inherit;
+      outline:none;
     }
     .form textarea{min-height:130px;resize:vertical}
     .form input::placeholder,.form textarea::placeholder{color:#7f8ba5}
-    footer{padding:36px 0 42px;color:var(--muted);text-align:center;font-size:.95rem}
+
+    footer{
+      padding:36px 0 42px;
+      color:var(--muted);
+      text-align:center;
+      font-size:.95rem;
+    }
+
     @media (max-width: 900px){
       .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
       .skill-grid,.project-grid{grid-template-columns:1fr 1fr}
@@ -212,15 +353,29 @@
       <div class="hero-grid">
         <div>
           <div class="eyebrow"><span class="dot"></span> Open to internships and collaborations</div>
-          <h1>Hi, I’m <span class="gradient">Your Name</span>.</h1>
+          <h1>Hi, I’m <span class="gradient-text">Your Name</span>.</h1>
           <p>
             I build modern, clean, and useful web experiences. This is my personal portfolio for projects,
             education, certifications, extracurriculars, and contact.
           </p>
           <div class="cta-row">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn secondary" href="#contact">Contact Me</a>
-            <a class="btn secondary" href="resume.pdf" download>Resume</a>
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+            <a class="btn btn-secondary" href="resume.pdf" download>Resume</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <h3>Projects</h3>
+              <p>Show your best work</p>
+            </div>
+            <div class="stat">
+              <h3>Skills</h3>
+              <p>Highlight what you know</p>
+            </div>
+            <div class="stat">
+              <h3>Reach Me</h3>
+              <p>Email and social links</p>
+            </div>
           </div>
         </div>
 
@@ -309,7 +464,9 @@
             <h3>Project One</h3>
             <p>Explain what it does, what problem it solves, and your role.</p>
             <div class="tags">
-              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
             </div>
           </article>
           <article class="project">
@@ -317,7 +474,9 @@
             <h3>Project Two</h3>
             <p>Mention team size, your contribution, and the tech used.</p>
             <div class="tags">
-              <span class="tag">Team Work</span><span class="tag">GitHub</span><span class="tag">API</span>
+              <span class="tag">Team Work</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">API</span>
             </div>
           </article>
           <article class="project">
@@ -325,7 +484,9 @@
             <h3>Project Three</h3>
             <p>Use this slot for your strongest project so far.</p>
             <div class="tags">
-              <span class="tag">Responsive</span><span class="tag">UI/UX</span><span class="tag">Deploy</span>
+              <span class="tag">Responsive</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Deploy</span>
             </div>
           </article>
         </div>
@@ -373,8 +534,8 @@
           Put your resume PDF in the same folder as this file and name it <strong>resume.pdf</strong>.
         </p>
         <div class="cta-row">
-          <a class="btn primary" href="resume.pdf" download>Download Resume</a>
-          <a class="btn secondary" href="resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+          <a class="btn btn-primary" href="resume.pdf" download>Download Resume</a>
+          <a class="btn btn-secondary" href="resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
         </div>
       </div>
     </section>
@@ -385,16 +546,16 @@
           <h2 class="section-title">Contact</h2>
           <p class="section-subtitle">Add your email and social links so people can reach you easily.</p>
           <div class="cta-row">
-            <a class="btn primary" href="mailto:youremail@example.com">Email Me</a>
-            <a class="btn secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="btn btn-primary" href="mailto:youremail@example.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           </div>
 
           <form class="form" action="mailto:youremail@example.com" method="post" enctype="text/plain">
             <input type="text" name="name" placeholder="Your name" />
             <input type="email" name="email" placeholder="Your email" />
             <textarea name="message" placeholder="Write your message here"></textarea>
-            <button class="btn primary" type="submit">Send Message</button>
+            <button class="btn btn-primary" type="submit">Send Message</button>
           </form>
         </div>
 
