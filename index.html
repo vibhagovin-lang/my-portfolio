@@ -10,17 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#060816;
-      --bg2:#0b1024;
-      --card:rgba(255,255,255,.06);
+      --bg:#050816;
+      --bg2:#0b1120;
+      --card:rgba(255,255,255,.05);
       --card2:rgba(255,255,255,.08);
-      --line:rgba(255,255,255,.12);
-      --text:#eef4ff;
-      --muted:#a4b3d1;
-      --accent:#8b5cf6;
-      --accent2:#38bdf8;
-      --accent3:#22c55e;
-      --shadow:0 22px 80px rgba(0,0,0,.38);
+      --line:rgba(255,255,255,.10);
+      --text:#f5f7ff;
+      --muted:#9aa8c7;
+      --accent:#a855f7;
+      --accent2:#22d3ee;
+      --accent3:#34d399;
+      --shadow:0 22px 80px rgba(0,0,0,.42);
       --radius:24px;
     }
 
@@ -30,9 +30,9 @@
       font-family:"Inter",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(139,92,246,.22), transparent 28%),
-        radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 26%),
-        radial-gradient(circle at bottom, rgba(34,197,94,.10), transparent 30%),
+        radial-gradient(circle at top left, rgba(168,85,247,.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(34,211,238,.18), transparent 26%),
+        radial-gradient(circle at bottom, rgba(52,211,153,.10), transparent 30%),
         linear-gradient(180deg,var(--bg),var(--bg2));
       min-height:100vh;
       overflow-x:hidden;
@@ -44,7 +44,7 @@
     .nav{
       position:sticky;top:0;z-index:30;
       backdrop-filter:blur(18px);
-      background:rgba(6,8,22,.62);
+      background:rgba(5,8,22,.62);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav-inner{
@@ -59,7 +59,7 @@
       width:42px;height:42px;border-radius:14px;
       display:grid;place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 12px 30px rgba(139,92,246,.28);
+      box-shadow:0 12px 30px rgba(168,85,247,.28);
       color:white;font-weight:800;
     }
     .nav-links{
@@ -99,7 +99,7 @@
       margin-bottom:18px;
     }
     .gradient-text{
-      background:linear-gradient(135deg,#ffffff 0%,#c4d6ff 35%,#7dd3fc 70%,#34d399 100%);
+      background:linear-gradient(135deg,#ffffff 0%,#d8b4fe 30%,#7dd3fc 65%,#86efac 100%);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -129,7 +129,7 @@
     .btn-primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:white;
-      box-shadow:0 16px 34px rgba(56,189,248,.16);
+      box-shadow:0 16px 34px rgba(34,211,238,.16);
     }
     .btn-secondary{
       background:rgba(255,255,255,.05);
@@ -167,8 +167,8 @@
       content:"";
       position:absolute;inset:-60px;
       background:
-        radial-gradient(circle at top, rgba(139,92,246,.22), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(56,189,248,.20), transparent 30%);
+        radial-gradient(circle at top, rgba(168,85,247,.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(34,211,238,.20), transparent 30%);
       pointer-events:none;
     }
     .profile{
@@ -179,7 +179,7 @@
       width:92px;height:92px;border-radius:28px;
       display:grid;place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 18px 40px rgba(139,92,246,.24);
+      box-shadow:0 18px 40px rgba(168,85,247,.24);
       font-size:2rem;font-weight:800;
     }
     .profile h2{font-size:1.8rem;margin-bottom:4px}
@@ -230,7 +230,7 @@
     .info-box{
       padding:22px;
       border-radius:22px;
-      background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(56,189,248,.10));
+      background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(34,211,238,.10));
       border:1px solid rgba(255,255,255,.10);
     }
     .info-box p{color:var(--muted);line-height:1.8}
@@ -261,9 +261,9 @@
       display:inline-flex;
       padding:8px 12px;
       border-radius:999px;
-      background:rgba(139,92,246,.16);
+      background:rgba(168,85,247,.16);
       color:#e6ddff;
-      border:1px solid rgba(139,92,246,.2);
+      border:1px solid rgba(168,85,247,.2);
       font-size:.82rem;
       margin-bottom:14px;
     }
@@ -469,6 +469,7 @@
               <span class="tag">JavaScript</span>
             </div>
           </article>
+
           <article class="project">
             <div class="badge">Team Project</div>
             <h3>Project Two</h3>
@@ -479,6 +480,7 @@
               <span class="tag">API</span>
             </div>
           </article>
+
           <article class="project">
             <div class="badge">Personal Project</div>
             <h3>Project Three</h3>
